@@ -2,11 +2,14 @@
 리눅스 운영과 관리 첫 번째 시간~~??강의도 아니고~~에는 파일시스템에 대해서 알아볼 것이다.
 
 ## 파일시스템이란?
-파일시스템(Filesystem)은 컴퓨터의 운영체제에서 하드디스크를 효과적으로 관리하고 파일이나 자료를 쉽게 발견 및 접근할 수 있도록 보관 또는 조직하는 구조를 가리키는 말이다.</br>
+<strong>파일시스템(Filesystem)</strong>은 컴퓨터의 운영체제에서 하드디스크를 효과적으로 관리하고 파일이나 자료를 쉽게 발견 및 접근할 수 있도록 보관 또는 조직하는 구조를 가리키는 말이다.</br>
 
 ## 파일시스템의 종류
 운영체제마다 지원하는 파일시스템이 상이하므로 다양한 종류가 있다. 대부분의 운영체제에서는 다양한 파일시스템을 지원한다.</br>
 셤에는 안나오지만 NTFS, EXT, NFS, HFS, HFS+ Reiserfs, JFS, XFS 등등이 있다.
+
+## 마운트란?
+<strong>마운트(Mount)</strong>란 현재 접근 가능한 파일시스템에 추가적인 스토리지의 파일시스템을 디렉토리 구조에 편입시키는 것을 말한다.
 
 ## 파일시스템 관련 명령어
 
@@ -15,8 +18,8 @@ chmod (change mode)
 ```bash
  $ chmod [option] [mode] [filename]
 ```
-<strong>chmod</strong> 명령어는 <strong>파일이나 디렉토리의 파일 허가권을 변경</strong>하는 데 사용된다.</br>
-<strong>파일 허가권</strong>(Permission)은 파일이나 디렉토리에 대한 각 사용자의 허가와 권한을 나타낸다.</br>
+<strong>chmod</strong> 명령어는 파일이나 디렉토리의 파일 허가권을 변경m하는 데 사용된다.</br>
+<strong>파일 허가권(Permission)</strong>은 파일이나 디렉토리에 대한 각 사용자의 허가와 권한을 나타낸다.</br>
 
 #### option
 
@@ -58,6 +61,9 @@ umask 에 의해 각 기본권한에서 umask 값만큼 권한이 제한되므�
 - <strong>-S</strong> : 값을 문자로 표기
 
 ```bash
+Microsoft Windows [Version 10.0.16299.125]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
 C:\Users\JunhoYeo>bash
 JunhoYeo@DESKTOP-VKETEKB:/mnt/c/Users/JunhoYeo$ umask -S
 u=rwx,g=rwx,o=rwx
@@ -93,19 +99,38 @@ chown (change owner)
 chown 명령어는 파일의 소유자나 소유 그룹을 변경하기 위해서 사용된다.
 
 #### option
-- -R : 하위 디렉토리를 포함하여 디렉토리 내부의 모든 파일의 소유주와 소유 그룹을 변경(재귀적으로)
-- -c : 변경된 정보를 출력
+- <strong>-R</strong> : 하위 디렉토리를 포함하여 디렉토리 내부의 모든 파일의 소유주와 소유 그룹을 변경(재귀적으로)
+- <strong>-c</strong> : 변경된 정보를 출력
 
 # chgrp
 chgrp (change group)
 ```bash
  $ chgrp [option] [groupname] [filename]
 ```
-chgrp 명령어는 파일 또는 디렉토리의 소유 그룹을 변경하기 위해서 사용된다.
+<strong>chgrp</strong> 명령어는 파일 또는 디렉토리의 소유 그룹을 변경하기 위해서 사용된다.
 
 #### option
-- -R : 하위 디렉토리를 포함하여 디렉토리 내부의 모든 파일의 그룹 소유권을 변경(재귀적으로)
-- -c : 변경된 정보를 출력
+- <strong>-R</strong> : 하위 디렉토리를 포함하여 디렉토리 내부의 모든 파일의 그룹 소유권을 변경(재귀적으로)
+- <strong>-c</strong> : 변경된 정보를 출력
 
 ## 파일시스템 관련
-#
+# /etc/fstab
+<strong>/etc/fstab</strong> 파일은 어떤 장치를 어디에, 어떤 옵션으로 마운트할 것인지가 저장되어 있다.
+```bash
+Microsoft Windows [Version 10.0.16299.125]
+(c) 2017 Microsoft Corporation. All rights reserved.
+
+C:\Users\JunhoYeo>bash
+JunhoYeo@DESKTOP-VKETEKB:/mnt/c/Users/JunhoYeo$ cat /etc/fstab
+LABEL=cloudimg-rootfs   /        ext4   defaults        0 0
+```
+역시 직접 열어서 내용을 확인해봐따.</br>
+6개의 필드가 보이는데 각각 무슨 내용을 저장하고 있을까?
+
+#### fields
+1. 디바이스명(device name) : 마운트될 장치를 선언하는 부분
+2. 마운트 포인트(mount point) : 마운트된 장치가 연결되는 디렉토리
+3. 파일 시스템의 종류 : 마운트된 장치의 파일시스템 타입
+4. 파일 시스템의 고유 옵션 : 파일시스템의 속성을 선언하는 부분
+5. dump 명령어가 그 파일 시스템을 덤프할 필요가 있는지를 지정
+6. <strong>fsck</strong> 명령어로 무결성의 체크 여부를 지정, 0인 파티션은 체크 X

@@ -1,11 +1,11 @@
 # Linux
-운영체제 커널 <strong>리눅스(Linux Is Not UniX)</strong>에 관한 디렉토리. 
+운영체제 커널 <strong>리눅스(Linux Is Not UniX)</strong>에 관한 디렉토리.
 
 # What is Linux?
 리눅스는 리누스 베네딕트 토르발스(Linus Benedict Torvalds)가 만든 운영체제 커널이다. 이걸 GNU 프로젝트에서 완성시킨 게 GNU/Linux다. </br>
-GNU를 잠깐 설명하자면, "리처드 메튜 스톨만" 이 개발한 하나의 운영체제이다. GNU는 <strong>GNU's NOT UNIX!</strong>의 약자이다.</br> 
-<a href="https://ko.wikipedia.org/wiki/GNU"> (참고 사이트) </a> </br>
-<a href="https://www.gnu.org/home.ko.html"> (공식 GNU 사이트) </a> </br> </br>
+GNU를 잠깐 설명하자면, "리처드 메튜 스톨만" 이 개발한 하나의 운영체제이다. GNU는 <strong>Gnu's Not Unix!</strong>의 약자이다.</br> 
+<a href="https://ko.wikipedia.org/wiki/GNU"> (위키백과의 GNU 항목) </a> </br>
+<a href="https://www.gnu.org/home.ko.html"> (GNU 공식 사이트) </a> </br> </br>
 ~~갓~~리누스는 또 리눅스 커널관리를 위해서 git이라는 녀석도 만들었다. 이 프로젝트 역시 무료 git 저장소인 Github에 자리잡고 있다.</br>
 
 # Distributions

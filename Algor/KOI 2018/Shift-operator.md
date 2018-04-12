@@ -12,6 +12,7 @@
 <blockquote>산술 시프트는 연산자 중 하나로서 특수한 2의 거듭제곱수(2, 4, 8, 16 ... 등)와 관련한 곱셈과 나눗셈을 연산할때 사용된다.</blockquote>
 2진법 숫자를 n비트만큼 좌/우로 이동하는 연산이다.<br>
 이때 밀려서 새로 생기는 빈칸에는 `0`을 넣고 밀리는 비트는 삭제한다.<br>
+
 ![Rotate_left_logically](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Rotate_left_logically.svg/210px-Rotate_left_logically.svg.png)<br>
 문서에 있던 그림인데 이해가 잘 되서 가져왔다.
 왼쪽(`left`)으로 한 칸씩 시프트하는 예제이다.
@@ -21,6 +22,7 @@
 
 3. `Circular shift(Rotate no carry)` : 원 시프트<br>
 얘는 밀리는 비트를 삭제하는 게 아니라 끝에 걍 붙여준다. 원통처럼 빙그르르 돌아가는 식이다.<br>
+
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Rotate_left.svg/175px-Rotate_left.svg.png)<br>
 이것도 그림으로 보면 이해가 잘 된다.
 역시 왼쪽(`left`)으로 한 칸씩 시프트하는 예제이다.
